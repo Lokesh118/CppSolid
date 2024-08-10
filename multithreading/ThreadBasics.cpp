@@ -17,7 +17,7 @@ int main(){
         // thread class can be used to create threads.
         // thread class offers default constructer to create a thread object, it also parametrized constructor to pass a callable, lamda as a parameter as well as the parameters of the callable/lamda 
     thread t1;
-    cout<<"okay"<<endl;
+    cout<<t1.get_id()<<endl;
 
     // THREAD::JOIN()
         //used for joining the thread with the main thread so that the main thread wouldn't wait for the completion of the child thread.
