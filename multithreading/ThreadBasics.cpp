@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include<queue>
 #include<thread>
@@ -17,10 +18,15 @@ int main(){
         // thread class can be used to create threads.
         // thread class offers default constructer to create a thread object, it also parametrized constructor to pass a callable, lamda as a parameter as well as the parameters of the callable/lamda 
     thread t1;
-    cout<<"okay"<<endl;
+    cout<<t1.get_id()<<endl;
+
+    thread t2([](){
+        cout<<this_thread::get_id()<<endl;
+        cout<<"Second thread"<<endl;
+    });
 
     // THREAD::JOIN()
-        //used for joining the thread with the main thread so that the main thread wouldn't wait for the completion of the child thread.
+        //used for joining the thread with the main thread so that the main thread would wait for the completion of the child thread.
         // if thread is not joinable, then thread.join() shall cause an std::system_error. Hence it's safer to use thread::joinable() before joining it.
     if(t1.joinable()) {
         cout<<"yes it's joinable"<<endl;
