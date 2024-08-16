@@ -1,19 +1,18 @@
 #include<iostream>
 #include<thread>
-#include "common.h"
+#include "thread_guard.h"
 
-using namespace std;
 
 void foo(){
-    cout<<"foo"<<endl;
+    std::cout<<"foo"<<std::endl;
 }
 void other_operations(){
-    cout<<"In other operations"<<endl;
-    throw runtime_error("this is runtime error\n");
+    std::cout<<"In other operations"<<std::endl;
+    throw std::runtime_error("this is runtime error\n");
 }
-int main(){
-    thread t(foo);
-    thread_guard tg(t);
+void JoinWithException(){
+    std::thread t(foo);
+    mt::thread_guard tg(t);
     try{
         other_operations();
     }catch(...){

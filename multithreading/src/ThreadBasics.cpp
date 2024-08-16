@@ -13,7 +13,7 @@ void fun(){
     cout<<endl;
 }
 
-int main(){
+int ThreadBasics(){
     // STD::THREAD
         // thread class can be used to create threads.
         // thread class offers default constructer to create a thread object, it also parametrized constructor to pass a callable, lamda as a parameter as well as the parameters of the callable/lamda 
